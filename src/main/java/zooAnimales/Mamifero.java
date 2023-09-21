@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class Mamifero extends Animal {
 	
-	private ArrayList<Mamifero> listado = new ArrayList<Mamifero>();
+	private static ArrayList<Mamifero> listado = new ArrayList<Mamifero>();
 	public static int caballos;
 	public static int leones;
 	private Boolean pelaje;
 	private int patas;
 	
 	public Mamifero() {
-		
+		Mamifero.listado.add(this);
 	}
 	public Mamifero(String nombre, int edad, String habitat, String genero, Boolean pelaje, int patas) {
 		this.setNombre(nombre);
@@ -21,14 +21,14 @@ public class Mamifero extends Animal {
 		this.setGenero(genero);
 		this.pelaje = pelaje;
 		this.patas = patas;
-		Mamifero.sumarAnimales();
-		this.listado.add(this);
+		
+		Mamifero.listado.add(this);
 	}
 	public ArrayList<Mamifero> getListado() {
 		return listado;
 	}
 	public void setListado(ArrayList<Mamifero> listado) {
-		this.listado = listado;
+		Mamifero.listado = listado;
 	}
 	public int getCaballos() {
 		return caballos;
@@ -70,5 +70,10 @@ public class Mamifero extends Animal {
 	public int cantidadMamiferos() {
 		return this.getCaballos() + this.getLeones();
 	}
+	
+	public static int getCantidad() {
+		return Mamifero.listado.size();
+	}
+
 
 }

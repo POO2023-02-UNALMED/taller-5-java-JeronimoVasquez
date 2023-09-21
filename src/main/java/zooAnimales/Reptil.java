@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Reptil extends Animal {
 	
-	private ArrayList<Reptil> listado = new ArrayList<Reptil>();
+	private static ArrayList<Reptil> listado = new ArrayList<Reptil>();
 	public static int iguanas;
 	public static int serpientes;
 	private String colorEscamas;
@@ -13,7 +13,7 @@ public class Reptil extends Animal {
 	
 	public Reptil() {
 		
-	
+		Reptil.listado.add(this);
 	}
 	
 	public Reptil(String nombre, int edad, String habitat, String genero, String colorEscamas, int largoCola) {
@@ -23,8 +23,8 @@ public class Reptil extends Animal {
 		this.setGenero(genero);
 		this.colorEscamas= colorEscamas;
 		this.largoCola = largoCola;
-		Reptil.sumarAnimales();
-		this.listado.add(this);
+		
+		Reptil.listado.add(this);
 	}
 	
 	@Override
@@ -37,7 +37,7 @@ public class Reptil extends Animal {
 	}
 
 	public void setListado(ArrayList<Reptil> listado) {
-		this.listado = listado;
+		Reptil.listado = listado;
 	}
 
 	public int getIguanas() {
@@ -87,6 +87,11 @@ public class Reptil extends Animal {
 	public int cantidadReptiles() {
 		return this.getIguanas() + this.getSerpientes();
 	}
+	
+	public static int getCantidad() {
+		return Reptil.listado.size();
+	}
+
 	
 
 }

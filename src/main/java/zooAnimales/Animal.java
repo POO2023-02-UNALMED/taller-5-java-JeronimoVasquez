@@ -4,7 +4,7 @@ import gestion.*;
 
 public class Animal {
 	
-	private static int totalAnimales;
+	private static int totalAnimales = 0;
 	private String nombre;
 	private int edad;
 	private String habitat;
@@ -25,9 +25,9 @@ public class Animal {
 	
 	public static String totalPorTipo() {
 		
-		return "Mamiferos: " + Mamifero.getTotalAnimales()+ "\n" + "Aves: " + Ave.getTotalAnimales()
-				+ "\n" + "Reptiles: " + Reptil.getTotalAnimales() + "\n" + "Peces: " + Pez.getTotalAnimales()
-				+ "\n" + "Anfibios: " + Anfibio.getTotalAnimales();
+		return "Mamiferos: " + Mamifero.getCantidad()+ "\n" + "Aves: " + Ave.getCantidad()
+				+ "\n" + "Reptiles: " + Reptil.getCantidad() + "\n" + "Peces: " + Pez.getCantidad()
+				+ "\n" + "Anfibios: " + Anfibio.getCantidad();
 	}
 	
 	public String toString() {
@@ -46,15 +46,16 @@ public class Animal {
 	public String movimiento() {
 		return "desplazarse";
 	}
-	public static int getTotalAnimales() {
+	public  static int getTotalAnimales() {
 		return totalAnimales;
 	}
-	public static void setTotalAnimales(int totalAnimales) {
-		Animal.totalAnimales = totalAnimales;
+	public  void setTotalAnimales(int totalAnimale) {
+		totalAnimales = totalAnimale;
 	}
-	public static void sumarAnimales() {
-		Animal.totalAnimales++;
+	public static void  sumarAnimales() {
+		totalAnimales++;
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}

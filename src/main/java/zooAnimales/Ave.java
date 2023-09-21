@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public class Ave extends Animal {
 	
-	private ArrayList<Ave> listado = new ArrayList<Ave>();
+	private static ArrayList<Ave> listado = new ArrayList<Ave>();
 	public static int halcones;
 	public static int aguilas;
 	private String colorPlumas;
 	
 	public Ave() {
-		
+		Ave.listado.add(this);
 	}
 	public Ave(String nombre, int edad, String habitat, String genero, String colorPlumas) {
 		this.setNombre(nombre);
@@ -19,8 +19,8 @@ public class Ave extends Animal {
 		this.setHabitat(habitat);
 		this.setGenero(genero);
 		this.colorPlumas = colorPlumas;
-		Ave.sumarAnimales();
-		this.listado.add(this);
+		
+		Ave.listado.add(this);
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public class Ave extends Animal {
 		return listado;
 	}
 	public void setListado(ArrayList<Ave> listado) {
-		this.listado = listado;
+		Ave.listado = listado;
 	}
 	public int getHalcones() {
 		return halcones;
@@ -66,5 +66,10 @@ public class Ave extends Animal {
 	public int cantidadAves() {
 		return this.getAguilas() + this.getHalcones();
 	}
+	
+	public static int getCantidad() {
+		return Ave.listado.size();
+	}
+
 
 }
